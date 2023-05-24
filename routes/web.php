@@ -27,10 +27,6 @@ Route::get('/registration', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
-Route::get('/catalog', function () {
-    $products = Product::all();
-    return view('catalog', compact('products'));
-});
 Route::get('/cart', function () {
     return view('cart');
 });
@@ -38,6 +34,14 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+Route::get('/catalog', function () {
+    $products = Product::all();
+    return view('catalog', compact('products'));
+});
+Route::get('/admin', function () {
+    $products = Product::all();
+    return view('admin', compact('products'));
+});
 Route::post('/create', [UserController::class, 'register'])->name("create");
 Route::post('/auth', [UserController::class, 'login'])->name("auth");
 Route::get('/logout', [UserController::class, 'logout']);

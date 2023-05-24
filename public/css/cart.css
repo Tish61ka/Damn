@@ -91,3 +91,8 @@ section button {
     float: right;
     margin-bottom: 1.5em;
 }
+
+.empty {
+    width: 100%;
+    text-align: center;
+}

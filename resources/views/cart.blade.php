@@ -12,36 +12,54 @@
 </head>
 
 <body>
-    @include('header')
-    <section class="container">
-        <h1>Корзина</h1>
-        <table>
-            <thead>
-                <tr>
-                    <td>Название</td>
-                    <td>Цена за 1 шт</td>
-                    <td>Количество</td>
-                    <td>Общая стоимость</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>TOPSHOP КОЖАНЫЕ БОТИЛЬОНЫ МОЛОЧНОГО ЦВЕТА</td>
-                    <td>4900</td>
-                    <td>
-                        <div>
-                            <a>+</a>
-                            <p>1</p>
-                            <a>-</a>
-                        </div>
-                    </td>
-                    <td>4900</td>
-                </tr>
-            </tbody>
-        </table>
-        <button>Оформить заказ</button>
-    </section>
-    @include('footer')
+    @php
+    use App\Models\Product;
+    $price = 0;
+    for ($i=0; $i < count($cart); $i++) { $price +=$cart[$i]->summ;}
+        @endphp
+        @include('header')
+        <section class="container">
+            <h1>Корзина</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Название</td>
+                        <td>Цена за 1 шт</td>
+                        <td>Количество</td>
+                        <td>Общая стоимость</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach($cart as $products)
+                    @php
+                    $product = Product::find($products->id_product);
+                    @endphp
+                    <tr>
+                        <td>{{$product->title}}</td>
+                        <td>4900</td>
+                        <td>
+                            <div>
+                                @if($product->stok == $products->count)
+                                @else
+                                <a href="/add/cart/{{$product->id}}">+</a>
+                                <p>{{$products->count}}</p>
+                                @endif
+                                <a href="/minus/cart/{{$product->id}}">-</a>
+                            </div>
+                        </td>
+                        <td>{{$products->summ}}</td>
+                    </tr>
+
+                    @endforeach
+                </tbody>
+            </table>
+            @if(count($cart) == 0)
+            <p class="empty">Ваша корзина пока пуста!</p>
+            @endif
+            <button>Оформить заказ</button>
+        </section>
+        @include('footer')
 </body>
 
 </html>

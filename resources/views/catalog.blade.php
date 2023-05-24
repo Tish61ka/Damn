@@ -29,7 +29,7 @@
                 </a>
                 <p>{{$product->price}} &#8381;</p>
                 @auth
-                <a href="" class="button-hov">В корзину</a>
+                <a href="/add/cart/{{$product->id}}" class="button-hov">В корзину</a>
                 @endauth
             </div>
             @endforeach

@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 
@@ -43,6 +46,17 @@ Route::get('/admin', function () {
     $products = Product::all();
     return view('admin', compact('products'));
 });
+
+Route::get('/cart', function () {
+    $cart = Cart::all()->where('id_user', Auth::guard('sanctum')->id());
+    return view('cart', compact('cart'));
+});
+
+Route::get('/add/cart/{id}', [CartController::class, 'add']);
+Route::get('/minus/cart/{id}', [CartController::class, 'minus']);
+Route::get('/delete/cart/{id}', [CartController::class, 'delete']);
+Route::post('/cart/all', [CartController::class, 'show']);
+
 Route::post('/create/product', [ProductController::class, 'create'])->name('created');
 Route::post('/create', [UserController::class, 'register'])->name("create");
 Route::post('/auth', [UserController::class, 'login'])->name("auth");

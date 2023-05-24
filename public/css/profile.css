@@ -90,3 +90,26 @@ section {
 .orders table tr td:last-child {
     text-align: right;
 }
+
+.success {
+    padding: 20px 20px;
+    font-size: 17px;
+    background-color: rgba(71, 188, 90, 0.5);
+}
+
+.success div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.success a {
+    transform: rotate(45deg);
+    font-size: 34px;
+    color: white;
+}
+
+.success p {
+    color: white;
+}

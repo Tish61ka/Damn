@@ -14,7 +14,12 @@
 <body>
     @include('header')
     @if(session('success'))
-    <p class="success">{{session('success')}}</p>
+    <div class="success">
+        <div class="container">
+            <p>{{session('success')}}</p>
+            <a href="">+</a>
+        </div>
+    </div>
     @endif
     <section class="container">
         <div class="contact">

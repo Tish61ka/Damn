@@ -31,6 +31,9 @@ Route::get('/catalog', function () {
     $products = Product::all();
     return view('catalog', compact('products'));
 });
+Route::get('/cart', function () {
+    return view('cart');
+});
 
 
 Route::post('/create', [UserController::class, 'register'])->name("create");

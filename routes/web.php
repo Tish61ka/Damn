@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::get('/admin', function () {
     $products = Product::all();
     return view('admin', compact('products'));
 });
+Route::post('/create/product', [ProductController::class, 'create'])->name('created');
 Route::post('/create', [UserController::class, 'register'])->name("create");
 Route::post('/auth', [UserController::class, 'login'])->name("auth");
 Route::get('/logout', [UserController::class, 'logout']);

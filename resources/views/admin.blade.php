@@ -18,7 +18,7 @@
         <h1>Админ Панель</h1>
         <div class="edit-product">
             <div>
-                <form action="{{ route('create') }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('created') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div>
                         <label>Название</label>
@@ -42,11 +42,11 @@
                     </div>
                     <div>
                         <label>Изображение товара</label>
-                        <input type="file" required>
+                        <input type="file" name="img" required>
                     </div>
                     <div>
                         <label>Категория</label>
-                        <input type="text" name="category" required>
+                        <input type="text" name="category" required value="1" readonly>
                     </div>
                     <button type="submit">Создать</button>
                 </form>
@@ -54,7 +54,7 @@
             <div>
                 @foreach($products as $product)
                 <div class="item">
-                    <a href="">
+                    <a href="#">
                         <div>
                             <img src="{{$product->img}}" alt="No Ethernet">
                             <img src="{{$product->img}}" alt="No Ethernet">

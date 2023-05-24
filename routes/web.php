@@ -34,7 +34,9 @@ Route::get('/catalog', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
-
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 Route::post('/create', [UserController::class, 'register'])->name("create");
 Route::post('/auth', [UserController::class, 'login'])->name("auth");

@@ -37,7 +37,11 @@ class UserController extends Controller
         $user = Auth::guard('sanctum')->user();
         Auth::login($user);
         $token = $user->createToken('auth_token')->plainTextToken;
-        return redirect('/profile')->with('success', 'Вы успешно авторизовались!');
+        if ($user->role == 1) {
+            return  redirect('/admin');
+        } else {
+            return redirect('/profile')->with('success', 'Вы успешно авторизовались!');
+        }
     }
 
     public function logout()

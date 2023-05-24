@@ -20,7 +20,7 @@
         <div>
             @foreach($products as $product)
             <div class="item">
-                <a href="">
+                <a href="/item/{{$product->id}}">
                     <div>
                         <img src="{{$product->img}}" alt="No Ethernet">
                         <img src="{{$product->img}}" alt="No Ethernet">

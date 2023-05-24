@@ -28,6 +28,10 @@ Route::get('/login', function () {
 Route::get('/registration', function () {
     return view('registr');
 });
+Route::get('/item/{id}', function ($id) {
+    $product = Product::find($id);
+    return view('item', compact('product'));
+});
 Route::get('/profile', function () {
     return view('profile');
 });

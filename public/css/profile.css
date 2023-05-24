@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    color: black;
+}
+
+:root {
+    --hover-color: #e2bcaf;
+}
+
+.container {
+    max-width: 1560px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.contact {
+    border-right: 1px solid rgb(204, 204, 204);
+    padding-right: 50px;
+}
+
+.contact h1 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+}
+
+.contact p {
+    font-size: 17px;
+    margin-bottom: 1.2em;
+}
+
+.contact a {
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+.contact a:hover {
+    color: var(--hover-color);
+    transition: 200ms;
+}
+
+.orders {
+    padding-left: 50px;
+    flex-grow: 1;
+}
+
+.orders h1 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders table tr {
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.orders table tr td {
+    padding: 20px 20px;
+}
+
+.orders table tr td:first-child {
+    text-align: left;
+}
+
+.orders table tr td:nth-child(2) {
+    text-align: center;
+}
+
+.orders table tr td:last-child {
+    text-align: right;
+}

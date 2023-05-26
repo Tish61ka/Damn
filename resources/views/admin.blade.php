@@ -63,6 +63,7 @@
                     </a>
                     <p>{{$product->price}} &#8381;</p>
                     <a href="/edit/{{$product->id}}" class="button-hov">Редактировать</a>
+                    <a href="/delete/product/{{$product->id}}" class="button-hov">Удалить</a>
                 </div>
                 @endforeach
             </div>

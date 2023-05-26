@@ -75,5 +75,6 @@ Route::group(
         });
         Route::post('/create/product', [ProductController::class, 'create'])->name('created');
         Route::post('/update/product', [ProductController::class, 'update'])->name('update');
+        Route::get('/delete/product/{id}', [ProductController::class, 'delete']);
     }
 );

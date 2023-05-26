@@ -30,34 +30,32 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach($cart as $products)
                     @php
                     $product = Product::find($products->id_product);
                     @endphp
                     <tr>
                         <td>{{$product->title}}</td>
-                        <td>4900</td>
+                        <td>{{$product->price}}</td>
                         <td>
                             <div>
-                                @if($product->stok == $products->count)
+                                @if($product->count == $products->count)
                                 @else
                                 <a href="/add/cart/{{$product->id}}">+</a>
-                                <p>{{$products->count}}</p>
                                 @endif
+                                <p>{{$products->count}}</p>
                                 <a href="/minus/cart/{{$product->id}}">-</a>
                             </div>
                         </td>
                         <td>{{$products->summ}}</td>
                     </tr>
-
                     @endforeach
                 </tbody>
             </table>
             @if(count($cart) == 0)
             <p class="empty">Ваша корзина пока пуста!</p>
             @endif
-            <button>Оформить заказ</button>
+            <a href="/create/order">Оформить заказ</a>
         </section>
         @include('footer')
 </body>

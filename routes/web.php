@@ -5,8 +5,10 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,8 @@ Route::get('/item/{id}', function ($id) {
     return view('item', compact('product'));
 });
 Route::get('/profile', function () {
-    return view('profile');
+    $orders = Order::all()->where('id_user', Auth::user()->id);
+    return view('profile', compact('orders'));
 });
 Route::get('/cart', function () {
     return view('cart');
@@ -59,6 +62,7 @@ Route::get('/cart', function () {
 Route::get('/add/cart/{id}', [CartController::class, 'add']);
 Route::get('/minus/cart/{id}', [CartController::class, 'minus']);
 Route::get('/delete/cart/{id}', [CartController::class, 'delete']);
+Route::get('/create/order', [OrderController::class, 'create']);
 Route::post('/cart/all', [CartController::class, 'show']);
 
 Route::post('/create/product', [ProductController::class, 'create'])->name('created');

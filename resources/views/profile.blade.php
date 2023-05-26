@@ -41,11 +41,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($orders as $order)
                     <tr>
-                        <td>Заказ №1</td>
-                        <td>25.09.2003</td>
-                        <td>7500 &#8381;</td>
+                        <td>Заказ №{{$order->id}}</td>
+                        <td>{{$order->created_at->format('d.m.Y')}}</td>
+                        <td>{{$order->order_price}} &#8381;</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

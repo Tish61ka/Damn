@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/admin.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>Edit {{$product->title}}</title>
 </head>
 
 <body>
@@ -18,38 +18,40 @@
         <h1>Админ Панель</h1>
         <div class="edit-product">
             <div>
-                <form action="{{ route('created') }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('update') }}" enctype="multipart/form-data" method="POST">
                     @csrf
+                    <input type="hidden" name="id" value="{{$product->id}}">
                     <div>
                         <label>Название</label>
-                        <input type="text" name="title" required>
+                        <input type="text" name="title" required value="{{$product->title}}">
                     </div>
                     <div>
                         <label>Цена</label>
-                        <input type="text" name="price" required>
+                        <input type="text" name="price" required value="{{$product->price}}">
                     </div>
                     <div>
                         <label>Год выпуска</label>
-                        <input type="text" name="year" required>
+                        <input type="text" name="year" required value="{{$product->year}}">
                     </div>
                     <div>
                         <label>Количество на складе</label>
-                        <input type="text" name="count" required>
+                        <input type="text" name="count" required value="{{$product->count}}">
                     </div>
                     <div>
                         <label>Модель</label>
-                        <input type="text" name="model" required>
+                        <input type="text" name="model" required value="{{$product->model}}">
                     </div>
                     <div>
                         <label>Изображение товара</label>
-                        <input type="file" name="img" required>
+                        <input type="file" name="img">
                     </div>
                     <div>
                         <label>Категория</label>
                         <input type="text" name="category" required value="1" readonly>
                     </div>
-                    <button type="submit">Создать</button>
+                    <button type="submit">Редактировать</button>
                 </form>
+                <!-- <a href="/admin"><button>Отменить</button></a> -->
             </div>
             <div>
                 @foreach($products as $product)

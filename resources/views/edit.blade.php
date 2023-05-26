@@ -51,7 +51,7 @@
                     </div>
                     <button type="submit">Редактировать</button>
                 </form>
-                <!-- <a href="/admin"><button>Отменить</button></a> -->
+                <a href="/admin"><button>Отменить</button></a>
             </div>
             <div>
                 @foreach($products as $product)

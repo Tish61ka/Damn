@@ -5,6 +5,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -76,5 +77,6 @@ Route::group(
         Route::post('/create/product', [ProductController::class, 'create'])->name('created');
         Route::post('/update/product', [ProductController::class, 'update'])->name('update');
         Route::get('/delete/product/{id}', [ProductController::class, 'delete']);
+        Route::post('/create/category', [CategoryController::class, 'create_category'])->name('category_create');
     }
 );

@@ -69,8 +69,14 @@
             </div>
         </div>
         <div class="edit-category">
-            <div></div>
-            <div></div>
+            <form action="{{ route('category_create') }}" method="POST">
+                @csrf
+                <div>
+                    <label>Название</label>
+                    <input type="text" name="category" required>
+                </div>
+                <button type="submit">Добавить</button>
+            </form>
         </div>
     </section>
 </body>
